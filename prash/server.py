@@ -26,6 +26,7 @@ import yaml
 from fastapi import Body, FastAPI, HTTPException, Query, Request, WebSocket, WebSocketDisconnect, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse, JSONResponse, StreamingResponse
+from prash.middleware.security_headers import SecurityHeadersMiddleware
 
 from prash.connector_registry import (
     CONNECTOR_REGISTRY,
@@ -403,6 +404,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+app.add_middleware(SecurityHeadersMiddleware)
+
 
 
 class APIBridgeException(HTTPException):

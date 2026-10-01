@@ -54,3 +54,7 @@ prash.yaml
 # Lock files (uv)
 uv.lock
 
+
+# Secret scan reports — never commit finding locations/details
+/gitleaks-report.json
+/gitleaks-report.sarif

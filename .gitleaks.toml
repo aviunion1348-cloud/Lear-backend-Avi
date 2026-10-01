@@ -1,0 +1,8 @@
+title = "Lear Backend Gitleaks Config"
+
+[allowlist]
+description = "Only non-secret templates and scanner metadata are excluded. Real credentials must never be added here."
+paths = [
+  '''(^|/)\.gitleaksignore$''',
+  '''(^|/)\.gitleaks\.toml$''',
+]
