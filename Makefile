@@ -1,4 +1,6 @@
-.PHONY: security-test secrets-scan headers-check fork-check
+.PHONY: security-test secrets-scan headers-check fork-check ci-security
+
+ci-security: fork-check security-test
 
 security-test:
 	python -m pytest -q tests/test_security_headers.py

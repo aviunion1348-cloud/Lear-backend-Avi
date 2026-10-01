@@ -45,3 +45,5 @@ Or:
 ```bash
 make fork-check
 ```
+
+For one local security gate, run `make ci-security`; it checks the fork layout and secure-header tests together.
