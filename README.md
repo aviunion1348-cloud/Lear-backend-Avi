@@ -172,3 +172,14 @@ Current focus is the **connector rewrite** (`CONNECTOR_REWRITE_SPEC.md`): a shar
 interface so every connector supports proactive watching and multi-connector
 correlation, not just read-then-diagnose. **457 tests passing.** Known gaps and open
 questions are tracked honestly in `PRASH_V2.md` §9/§10 and in GitHub Issues.
+
+## Security and fork publishing
+
+Security setup is documented in [SECURITY.md](SECURITY.md). Before publishing a fork, run the dependency-free check and secure-header tests:
+
+```bash
+python scripts/verify_fork.py
+python -m pytest -q tests/test_security_headers.py
+```
+
+The complete pull/publish procedure is in [PUBLISHING.md](PUBLISHING.md). GitHub Actions runs the full-history Gitleaks scan and secure-header checks automatically; the security workflow can also be started manually from the Actions tab.
