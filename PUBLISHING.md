@@ -33,3 +33,15 @@ gitleaks git --config .gitleaks.toml --redact .
 5. Do not publish if Gitleaks reports a real credential; rotate it with the provider first.
 
 The workflow uses only repository-relative paths, read-only contents permission, and the built-in GitHub token. No local secrets are required for pull requests from forks.
+
+Before opening a pull request from a fork, run the dependency-free repository smoke check:
+
+```bash
+python scripts/verify_fork.py
+```
+
+Or:
+
+```bash
+make fork-check
+```
